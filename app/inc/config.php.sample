@@ -1,0 +1,21 @@
+<?php
+
+$site_path = __DIR__."/../..";
+
+$host = $_SERVER['HTTP_HOST'];
+switch ($host) {
+	case 'gaglib.com.br':
+		$magrathea_path = ".../MagratheaPHP/Magrathea";
+		include($magrathea_path."/LOAD.php");
+		loadMagratheaEnv("prod");
+		break;
+	case 'gaglib.localhost.com':
+		$magrathea_path = "/local_path/MagratheaPHP/Magrathea";
+		include($magrathea_path."/LOAD.php");
+		loadMagratheaEnv("dev");
+		break;
+	default:
+		break;
+}
+
+?>
